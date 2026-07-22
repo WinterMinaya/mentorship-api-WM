@@ -2,97 +2,179 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# 🎓 Mentorship API - Academic Mentorías
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+API REST para la gestión de mentorías académicas, desarrollada con **NestJS**, **Prisma ORM** y **PostgreSQL**.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 📋 Stack Tecnológico
 
-## Project setup
+- **Framework:** NestJS 11
+- **ORM:** Prisma 7 con PostgreSQL
+- **Documentación:** Swagger (OpenAPI)
+- **Validación:** class-validator + class-transformer
+- **Entorno:** Node.js 22+
+
+---
+
+## 🚀 Ejecución Local
+
+### 1. Clonar repositorio
 
 ```bash
-$ npm install
+git clone https://github.com/WinterMinaya/mentorship-api-WM.git
+cd mentorship-api-WM
 ```
 
-## Compile and run the project
+### 2. Configurar variables de entorno
+
+Crea un archivo `.env` en la raíz del proyecto:
+
+```env
+DATABASE_URL=postgresql://usuario:password@localhost:5432/mentorship_db?schema=academic
+PORT=3000
+NODE_ENV=development
+```
+
+### 3. Instalar dependencias
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Run tests
+### 4. Generar el cliente de Prisma
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npx prisma generate
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### 5. Ejecutar migraciones
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npx prisma migrate dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 6. Iniciar servidor
 
-## Resources
+```bash
+# Modo desarrollo (con watch)
+npm run start:dev
 
-Check out a few resources that may come in handy when working with NestJS:
+# Modo producción
+npm run start:prod
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### 7. Acceder a la documentación
 
-## Support
+Una vez iniciado, abre: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 🌐 Deploy en Render.com
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Sigue estos pasos para desplegar la API en la nube con Render:
 
-## License
+### Requisito previo
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Tener una base de datos PostgreSQL en la nube. Recomendaciones gratuitas:
+- **Render PostgreSQL** (incluido en tu cuenta Render)
+- **Neon.tech** (gratuito, 500MB)
+- **Aiven** (gratuito)
+
+### Paso 1: Crear cuenta en Render
+
+1. Ve a [https://render.com](https://render.com)
+2. Regístrate con tu cuenta de GitHub
+
+### Paso 2: Desplegar desde GitHub
+
+1. Haz clic en **"New +"** → **"Web Service"**
+2. Conecta tu repositorio de GitHub: `WinterMinaya/mentorship-api-WM`
+3. Configura el servicio:
+
+| Campo | Valor |
+|-------|-------|
+| **Name** | `mentorship-api-wm` |
+| **Region** | `Oregon (US West)` o la más cercana |
+| **Branch** | `main` |
+| **Runtime** | `Node` |
+| **Build Command** | `npm install && npx prisma generate && npm run build` |
+| **Start Command** | `npm run start:prod` |
+| **Plan** | `Free` |
+
+### Paso 3: Configurar variables de entorno
+
+En la sección **"Environment Variables"**, agrega:
+
+| Variable | Valor |
+|----------|-------|
+| `DATABASE_URL` | `postgresql://usuario:password@host:5432/dbname?schema=academic` |
+| `NODE_ENV` | `production` |
+| `PORT` | `3000` |
+
+### Paso 4: Crear el servicio
+
+Haz clic en **"Create Web Service"**. Render automáticamente:
+1. Clonará el repositorio
+2. Ejecutará el build command
+3. Iniciará la aplicación
+4. Te asignará una URL tipo: `https://mentorship-api-wm.onrender.com`
+
+### Paso 5: Verificar
+
+Una vez desplegado, accede a:
+
+```
+https://mentorship-api-wm.onrender.com/api-docs
+```
+
+✅ **¡Tu API estará funcionando en la nube!**
+
+---
+
+## 📚 Endpoints de la API
+
+### Users (Usuarios: Mentores y Estudiantes)
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| `GET` | `/users` | Listar usuarios activos |
+| `GET` | `/users/{id}` | Obtener usuario por ID |
+| `POST` | `/users` | Crear usuario |
+| `PATCH` | `/users/{id}` | Actualizar usuario |
+| `DELETE` | `/users/{id}` | Eliminación lógica de usuario |
+
+### Categories (Categorías de materias)
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| `GET` | `/categories` | Listar categorías activas |
+| `GET` | `/categories/{id}` | Obtener categoría por ID |
+| `POST` | `/categories` | Crear categoría |
+| `PATCH` | `/categories/{id}` | Actualizar categoría |
+| `DELETE` | `/categories/{id}` | Eliminación lógica de categoría |
+
+### Mentorships (Mentorías)
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| `GET` | `/mentorships` | Listar mentorías activas |
+| `GET` | `/mentorships/{id}` | Obtener mentoría por ID |
+| `POST` | `/mentorships` | Crear mentoría |
+| `PATCH` | `/mentorships/{id}` | Actualizar mentoría |
+| `DELETE` | `/mentorships/{id}` | Eliminación lógica de mentoría |
+
+---
+
+## 🗄️ Esquema de Base de Datos
+
+El proyecto usa **PostgreSQL** con esquema `academic` y las siguientes tablas:
+
+- **users** - Estudiantes y mentores (con rol STUDENT o MENTOR)
+- **categories** - Categorías/áreas de conocimiento
+- **mentorships** - Relación de mentoría entre usuario-estudiante y usuario-mentor
+
+---
+
+## 📄 Licencia
+
+[MIT](https://github.com/nestjs/nest/blob/master/LICENSE)
+

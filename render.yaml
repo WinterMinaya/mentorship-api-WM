@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: mentorship-api-wm
+    runtime: node
+    repo: https://github.com/WinterMinaya/mentorship-api-WM
+    branch: main
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npm run start:prod
+    healthCheckPath: /api-docs
+    envVars:
+      - key: NODE_VERSION
+        value: 22.0.0
+      - key: PORT
+        value: 3000
+      - key: DATABASE_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
+
